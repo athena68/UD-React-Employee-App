@@ -23,26 +23,27 @@ const Login = (props) => {
   };
 
   return (
-    <div className="login-container">
+    <div className="signin-container">
       <h1>Employee Polls</h1>
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form className="form-signin" onSubmit={handleSubmit}>
+        <h2 class="form-signin-heading">Please login</h2>
         <input
           type="text"
-          data-testid="username"
-          className="login-input"
+          name="username"
+          className="form-input"
           placeholder="Username"
           value={username}
           onChange={handleUsername}
         />
         <input
           type="password"
-          data-testid="password"
-          className="login-input"
+          name="password"
+          className="form-input"
           placeholder="Password"
           value={password}
           onChange={handlePassword}
         />
-        <button type="submit" data-testid="submit" className="login-button">
+        <button type="submit" className="signin-btn">
           Login
         </button>
       </form>

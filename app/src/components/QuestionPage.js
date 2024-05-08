@@ -52,20 +52,20 @@ const QuestionPage = (props) => {
     "%)";
 
   return (
-    <div className="poll-container">
-      <h3 data-testid="poll-header">Poll by {name}</h3>
+    <div className="container">
+      <h3>Poll by {name}</h3>
       <img src={avatar} alt={`avatar of ${name}`} className="avatar-large" />
       <h3>Would You Rather</h3>
       {!isVoted && (
-        <div className="poll-options">
-          <div className="poll-option">
-            <p className="poll-textarea">{optionOne.text}</p>
+        <div className="poll-area">
+          <div>
+            <p>{optionOne.text}</p>
             <button onClick={handleOptionOne} className="poll-button">
               Vote
             </button>
           </div>
-          <div className="poll-option">
-            <p className="poll-textarea">{optionTwo.text}</p>
+          <div>
+            <p>{optionTwo.text}</p>
             <button onClick={handleOptionTwo} className="poll-button">
               Vote
             </button>
@@ -73,23 +73,27 @@ const QuestionPage = (props) => {
         </div>
       )}
       {isVoted && (
-        <div className="poll-options">
-          <div
-            className={`poll-option ${
-              isVotedOptionOne ? "background-voted" : "background-not-voted"
-            }`}
+        <div className="poll-area">
+          <label
+            className={`${isVotedOptionOne ? "poll-voted" : "poll-not-voted"}`}
           >
+            <input
+              type="checkbox"
+              checked={`${isVotedOptionOne ? "checked" : ""}`}
+            ></input>
             <p>{optionOne.text}</p>
-            <p data-testid="optionOne">{optionOneText}</p>
-          </div>
-          <div
-            className={`poll-option ${
-              isVotedOptionTwo ? "background-voted" : "background-not-voted"
-            }`}
+            <p>{optionOneText}</p>
+          </label>
+          <label
+            className={`${isVotedOptionTwo ? "poll-voted" : "poll-not-voted"}`}
           >
+            <input
+              type="checkbox"
+              checked={`${isVotedOptionTwo ? "checked" : ""}`}
+            ></input>
             <p>{optionTwo.text}</p>
-            <p data-testid="optionTwo">{optionTwoText}</p>
-          </div>
+            <p>{optionTwoText}</p>
+          </label>
         </div>
       )}
     </div>

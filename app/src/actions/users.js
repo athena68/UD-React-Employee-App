@@ -8,3 +8,20 @@ export function receiveUsers(users) {
     users,
   };
 }
+
+export function addUserQuestion({ author, id }) {
+  return {
+    type: ADD_USER_QUESTION,
+    author,
+    qid: id,
+  };
+}
+
+export function addUserAnswer(authedUser, qid, answer) {
+  return {
+    type: ADD_USER_ANSWER,
+    authedUser,
+    qid,
+    answer,
+  };
+}

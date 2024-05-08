@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { handleLogout } from "../actions/authedUser";
+import { proceedLogout } from "../actions/authedUser";
 
 const Nav = (props) => {
   const handleLogout = (e) => {
     e.preventDefault();
-    props.dispatch(handleLogout());
+    props.dispatch(proceedLogout());
   };
 
   return (
@@ -29,4 +29,10 @@ const Nav = (props) => {
   );
 };
 
-export default Nav;
+const mapStateToProps = ({ authedUser }) => {
+  return {
+    authedUser,
+  };
+};
+
+export default connect(mapStateToProps)(Nav);

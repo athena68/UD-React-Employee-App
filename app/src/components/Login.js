@@ -4,7 +4,7 @@ import { proceedLogin } from "../actions/authedUser";
 
 const Login = (props) => {
   const [username, setUsername] = useState("tylermcginnis");
-  const [password, setPassword] = useState("12345678");
+  const [password, setPassword] = useState("abc321");
 
   const handleUsername = (e) => {
     const value = e.target.value;

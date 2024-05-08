@@ -52,10 +52,16 @@ a {
   flex-direction: row;
   justify-content: flex-start;
   text-decoration: none;
+  /* background-color: #000;
+  color: #fff; */
 }
 
 .nav li:first-child {
   padding-left: 0;
+}
+
+.nav > div:nth-child(4) {
+  margin-left: auto;
 }
 
 ul {
@@ -158,4 +164,226 @@ li {
   margin-top: 10px;
   font-size: 20px;
   color: #c3392a;
+}
+
+.table {
+  width: 100%;
+  max-width: 1000px;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.table td {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #dfdcdc;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.table-cell {
+  padding: 10px;
+  border: 1px solid #ccc;
+  vertical-align: middle;
+}
+
+.table-cell:first-child {
+  width: 600px;
+}
+
+.table-name {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.table-userid {
+  display: block;
+  font-size: 14px;
+}
+
+.table-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.table-info {
+  display: flex;
+  align-items: center;
+}
+
+/* Refer from: https://codepen.io/Gogh/pen/LYXdZNE */
+
+.et__cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000;
+}
+
+/*==================== POLL UI ====================*/
+.et__box--wrapper {
+  --clr-primary: #000000;
+  --clr-bg-light: #ffffff;
+  --clr-gray-100: #cccccc;
+  --clr-gray-200: #e6e6e6;
+  --clr-gray-300: #f0f0f0;
+  --linear-gradient: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.25) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.25) 75%,
+    transparent 75%,
+    transparent
+  );
+
+  width: 100%;
+  max-width: 380px;
+  padding: 25px;
+  border-radius: 15px;
+  background-color: var(--clr-bg-light);
+}
+.et__box--wrapper header {
+  font-size: 22px;
+  font-weight: 700;
+}
+.et__box--wrapper .et__poll--area {
+  margin: 20px 0 15px;
+}
+.et__poll--area .et__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  cursor: pointer;
+  border: 2px solid var(--clr-gray-200);
+  transition: all 0.2s ease;
+}
+.et__poll--area .et__box:hover {
+  border-color: var(--clr-primary);
+}
+.et__poll--area .et__box.et__selected {
+  border-color: var(--clr-primary);
+}
+.et__poll--area .et__box .et__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+.et__poll--area .et__box .et__row .et__column {
+  display: flex;
+  align-items: center;
+}
+.et__poll--area .et__box .et__row .et__circle {
+  display: block;
+  height: 19px;
+  width: 19px;
+  margin-right: 10px;
+  border-radius: 50%;
+  position: relative;
+  border: 2px solid var(--clr-gray-100);
+}
+.et__poll--area .et__box.et__selected .et__row .et__circle {
+  border-color: var(--clr-primary);
+}
+.et__poll--area .et__box .et__row .et__circle::after {
+  display: none;
+  content: "";
+  height: 11px;
+  width: 11px;
+  border-radius: inherit;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background-image: var(--linear-gradient);
+  background-size: 0.5rem 0.5rem;
+  animation: etProgressBarStripes 1s linear infinite;
+  background-color: var(--clr-gray-100);
+}
+.et__poll--area .et__box:hover .et__row .et__circle::after {
+  display: block;
+  background-color: var(--clr-gray-200);
+}
+.et__poll--area .et__box.et__selected .et__row .et__circle::after {
+  display: block;
+  background-color: var(--clr-primary);
+}
+.et__poll--area .et__box .et__row span {
+  font-size: 16px;
+  font-weight: 400;
+}
+.et__poll--area .et__box .et__percent {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.et__poll--area .et__box.et__selectedAll .et__percent {
+  visibility: visible;
+  opacity: 1;
+}
+.et__poll--area .et__box .et__progress {
+  height: 0px;
+  width: 100%;
+  position: relative;
+  border-radius: 30px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background-color: var(--clr-gray-300);
+}
+.et__poll--area .et__box .et__progress::after {
+  content: "";
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  position: absolute;
+  background-color: var(--clr-gray-100);
+  background-image: var(--linear-gradient);
+  background-size: 1rem 1rem;
+  animation: etProgressBarStripes 1s linear infinite;
+  transition: width 0.5s ease;
+}
+.et__poll--area .et__box.et__selectedAll .et__progress {
+  height: 7px;
+  margin: 8px 0 3px;
+  visibility: visible;
+  opacity: 1;
+}
+.et__poll--area .et__box.et__selected .et__progress::after {
+  width: calc(1% * var(--w));
+  background-color: var(--clr-primary);
+}
+@-webkit-keyframes etProgressBarStripes {
+  from {
+    background-position: 55px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@keyframes etProgressBarStripes {
+  from {
+    background-position: 55px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
 }

@@ -12,17 +12,25 @@ const Nav = (props) => {
     <nav className="nav">
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" data-testid="home">
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/add">New</Link>
+          <Link to="/add" data-testid="new-question">
+            New
+          </Link>
         </li>
         <li>
-          <Link to="/leaderboard">Leaderboard</Link>
+          <Link to="/leaderboard" data-testid="leaderboard">
+            Leaderboard
+          </Link>
         </li>
-        <li>User: {props.authedUser}</li>
+        <li data-testid="display_user">User: {props.authedUser}</li>
         <li>
-          <Link onClick={handleLogout}>Logout</Link>
+          <Link onClick={handleLogout} data-testid="logout">
+            Logout
+          </Link>
         </li>
       </ul>
     </nav>

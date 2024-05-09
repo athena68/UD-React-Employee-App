@@ -37,7 +37,6 @@ const NewQuestion = (props) => {
       <h1 className="center">Would You Rather</h1>
       <p className="center">Create Your Own Poll</p>
       <form className="new-question" onSubmit={handleSubmit}>
-        {/* TODO: Redirect to Dashboard after submitted */}
         <h3 className="center">First Option</h3>
         <textarea
           data-testid="option-one"

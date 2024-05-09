@@ -20,7 +20,9 @@ const QuestionPage = (props) => {
 
   const question = questions[id];
 
-  if (question === null) {
+  console.log(question);
+
+  if (question === undefined) {
     return <Error404></Error404>;
   }
 
@@ -53,7 +55,7 @@ const QuestionPage = (props) => {
 
   return (
     <div className="container">
-      <h3>Poll by {name}</h3>
+      <h3 data-testid="poll-header">Poll by {name}</h3>
       <img src={avatar} alt={`avatar of ${name}`} className="avatar-large" />
       <h3>Would You Rather</h3>
       {!isVoted && (
@@ -82,7 +84,7 @@ const QuestionPage = (props) => {
               checked={`${isVotedOptionOne ? "checked" : ""}`}
             ></input>
             <p>{optionOne.text}</p>
-            <p>{optionOneText}</p>
+            <p data-testid="option-one-percent">{optionOneText}</p>
           </label>
           <label
             className={`${isVotedOptionTwo ? "poll-voted" : "poll-not-voted"}`}
@@ -92,7 +94,7 @@ const QuestionPage = (props) => {
               checked={`${isVotedOptionTwo ? "checked" : ""}`}
             ></input>
             <p>{optionTwo.text}</p>
-            <p>{optionTwoText}</p>
+            <p data-testid="option-two-percent">{optionTwoText}</p>
           </label>
         </div>
       )}

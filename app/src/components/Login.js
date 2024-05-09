@@ -26,10 +26,10 @@ const Login = (props) => {
     <div className="signin-container">
       <h1>Employee Polls</h1>
       <form className="form-signin" onSubmit={handleSubmit}>
-        <h2 class="form-signin-heading">Please login</h2>
+        <h2 className="form-signin-heading">Please login</h2>
         <input
           type="text"
-          name="username"
+          data-testid="username"
           className="form-input"
           placeholder="Username"
           value={username}
@@ -37,13 +37,13 @@ const Login = (props) => {
         />
         <input
           type="password"
-          name="password"
+          data-testid="password"
           className="form-input"
           placeholder="Password"
           value={password}
           onChange={handlePassword}
         />
-        <button type="submit" className="signin-btn">
+        <button type="submit" data-testid="submit" className="signin-btn">
           Login
         </button>
       </form>
